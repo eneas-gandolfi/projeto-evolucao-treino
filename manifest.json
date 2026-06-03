@@ -1,0 +1,19 @@
+{
+  "name": "Projeto Evolucao",
+  "short_name": "Treino",
+  "description": "Plano semanal de treino com ilustracoes ampliaveis e suporte offline.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101318",
+  "theme_color": "#101318",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
