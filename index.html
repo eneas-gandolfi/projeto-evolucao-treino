@@ -18,10 +18,29 @@
 
     <header>
         <h1>Projeto Evolução</h1>
-        <p>Plano semanal estruturado para hipertrofia, com referências visuais discretas e séries fáceis de consultar.</p>
+        <p>Plano semanal de hipertrofia com progressão clara, substituições equivalentes e foco em execução consistente.</p>
     </header>
 
     <main>
+        <section class="training-guide" aria-label="Instruções do treino">
+            <div class="guide-item">
+                <span class="guide-label">Progressão</span>
+                <p>Bateu o topo das repetições em todas as séries com boa forma? Suba a carga na próxima sessão.</p>
+            </div>
+            <div class="guide-item">
+                <span class="guide-label">Esforço</span>
+                <p>Compostos em 1-3 RIR. Isoladores em 0-2 RIR, usando falha só na última série quando estiver seguro.</p>
+            </div>
+            <div class="guide-item">
+                <span class="guide-label">Descanso</span>
+                <p>2-3 min nos movimentos pesados. 60-90 s em isoladores, panturrilha, braços e deltoides.</p>
+            </div>
+            <div class="guide-item">
+                <span class="guide-label">Execução</span>
+                <p>Amplitude controlada, excêntrica firme e músculo-alvo comandando o movimento antes da carga.</p>
+            </div>
+        </section>
+
         <div class="days-filter">
             <button class="day-btn active" data-target="all">Todos os Dias</button>
             <button class="day-btn" data-target="segunda">Segunda</button>
@@ -29,6 +48,7 @@
             <button class="day-btn" data-target="quarta">Quarta</button>
             <button class="day-btn" data-target="quinta">Quinta</button>
             <button class="day-btn" data-target="sexta">Sexta</button>
+            <button class="day-btn" data-target="casa">Casa</button>
         </div>
 
         <div class="workout-container">
@@ -41,6 +61,7 @@
                 <div class="workout-details">
                     <h2 class="day-title">Segunda-feira</h2>
                     <p class="muscle-group">Peito • Ombro • Tríceps</p>
+                    <p class="day-note">Dia de empurrar pesado: priorize carga controlada nos supinos e evite falhar cedo.</p>
                     <ul class="exercise-list">
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -62,7 +83,7 @@
                                 <span class="exercise-name">Supino inclinado halteres</span>
                                 <span class="exercise-target">Peitoral superior, ombro frontal e tríceps. Sinta a parte alta do peito alongar e contrair.</span>
                             </div>
-                            <span class="exercise-sets">4x 10-12</span>
+                            <span class="exercise-sets">3x 8-12</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -84,7 +105,7 @@
                                 <span class="exercise-name">Desenvolvimento máquina</span>
                                 <span class="exercise-target">Deltoides, principalmente anterior e lateral, com apoio do tríceps. Sinta os ombros conduzindo a subida.</span>
                             </div>
-                            <span class="exercise-sets">4x 10-12</span>
+                            <span class="exercise-sets">3x 8-12</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -120,6 +141,7 @@
                 <div class="workout-details">
                     <h2 class="day-title">Terça-feira</h2>
                     <p class="muscle-group">Costas • Bíceps</p>
+                    <p class="day-note">Costas pesado: puxe com cotovelos, segure escápulas e deixe bíceps para o final.</p>
                     <ul class="exercise-list">
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -198,19 +220,9 @@
                 </div>
                 <div class="workout-details">
                     <h2 class="day-title">Quarta-feira</h2>
-                    <p class="muscle-group">Pernas</p>
+                    <p class="muscle-group">Pernas completas • Core</p>
+                    <p class="day-note">Sessão mais densa da semana: descanse bem entre compostos e mantenha amplitude segura.</p>
                     <ul class="exercise-list">
-                        <li class="exercise-item has-illustration">
-                            <div class="exercise-illustration">
-                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Press/0.jpg" loading="lazy">
-                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Press/1.jpg" loading="lazy">
-                            </div>
-                            <div class="exercise-info">
-                                <span class="exercise-name">Leg press</span>
-                                <span class="exercise-target">Quadríceps, glúteos e posteriores. Sinta pernas empurrando a plataforma sem tirar o quadril do apoio.</span>
-                            </div>
-                            <span class="exercise-sets">4x 10-15</span>
-                        </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
                                 <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Smith_Machine_Squat/0.jpg" loading="lazy">
@@ -224,6 +236,28 @@
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Press/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Leg_Press/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Leg press</span>
+                                <span class="exercise-target">Quadríceps, glúteos e posteriores. Sinta pernas empurrando a plataforma sem tirar o quadril do apoio.</span>
+                            </div>
+                            <span class="exercise-sets">4x 10-15</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Stiff-Legged_Dumbbell_Deadlift/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Stiff-Legged_Dumbbell_Deadlift/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Stiff com halteres</span>
+                                <span class="exercise-target">Posteriores e glúteos. Sinta alongar atrás da coxa com quadril indo para trás e coluna neutra.</span>
+                            </div>
+                            <span class="exercise-sets">4x 8-12</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
                                 <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Lying_Leg_Curls/0.jpg" loading="lazy">
                                 <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Lying_Leg_Curls/1.jpg" loading="lazy">
                             </div>
@@ -231,7 +265,7 @@
                                 <span class="exercise-name">Mesa flexora</span>
                                 <span class="exercise-target">Posteriores de coxa. Sinta a parte de trás da perna puxando o peso, sem levantar o quadril.</span>
                             </div>
-                            <span class="exercise-sets">4x 12</span>
+                            <span class="exercise-sets">3x 10-12</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -242,7 +276,7 @@
                                 <span class="exercise-name">Cadeira extensora</span>
                                 <span class="exercise-target">Quadríceps. Sinta a frente da coxa contrair forte no topo e controle a volta.</span>
                             </div>
-                            <span class="exercise-sets">4x 12</span>
+                            <span class="exercise-sets">3x 12-15</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -253,7 +287,7 @@
                                 <span class="exercise-name">Panturrilha sentado</span>
                                 <span class="exercise-target">Panturrilha com foco no sóleo. Sinta a parte baixa da panturrilha alongar e subir sem pressa.</span>
                             </div>
-                            <span class="exercise-sets">5x 15-20</span>
+                            <span class="exercise-sets">4x 12-20</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -264,7 +298,18 @@
                                 <span class="exercise-name">Panturrilha em pé</span>
                                 <span class="exercise-target">Gastrocnêmio e sóleo. Sinta a panturrilha subir até a ponta do pé e alongar no fim da descida.</span>
                             </div>
-                            <span class="exercise-sets">5x 15-20</span>
+                            <span class="exercise-sets">4x 12-20</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Prancha</span>
+                                <span class="exercise-target">Core, abdômen e estabilizadores. Sinta o tronco firme, sem deixar lombar ceder.</span>
+                            </div>
+                            <span class="exercise-sets">3x 30-60s</span>
                         </li>
                     </ul>
                 </div>
@@ -277,7 +322,8 @@
                 </div>
                 <div class="workout-details">
                     <h2 class="day-title">Quinta-feira</h2>
-                    <p class="muscle-group">Costas • Ombros</p>
+                    <p class="muscle-group">Ombros • Costas leve</p>
+                    <p class="day-note">Controle e postura: use carga moderada, sem roubar com trapézio ou lombar.</p>
                     <ul class="exercise-list">
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -288,7 +334,7 @@
                                 <span class="exercise-name">Puxada frontal</span>
                                 <span class="exercise-target">Dorsais, redondo maior e bíceps como auxiliar. Sinta as costas puxando os cotovelos para baixo.</span>
                             </div>
-                            <span class="exercise-sets">4x 10</span>
+                            <span class="exercise-sets">3x 10-12</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -299,18 +345,18 @@
                                 <span class="exercise-name">Remada baixa</span>
                                 <span class="exercise-target">Meio das costas, dorsais e romboides. Sinta as escápulas juntando antes dos braços dominarem.</span>
                             </div>
-                            <span class="exercise-sets">4x 10</span>
+                            <span class="exercise-sets">3x 10-12</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
-                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Straight-Arm_Pulldown/0.jpg" loading="lazy">
-                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Straight-Arm_Pulldown/1.jpg" loading="lazy">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Face_Pull/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Face_Pull/1.jpg" loading="lazy">
                             </div>
                             <div class="exercise-info">
-                                <span class="exercise-name">Pulldown</span>
-                                <span class="exercise-target">Dorsais com pouca ajuda do bíceps. Sinta as axilas fechando e mantenha os braços quase estendidos.</span>
+                                <span class="exercise-name">Face pull</span>
+                                <span class="exercise-target">Deltoide posterior, trapézio médio e rotadores. Sinta puxar para o rosto abrindo os cotovelos.</span>
                             </div>
-                            <span class="exercise-sets">3x 15</span>
+                            <span class="exercise-sets">3x 12-15</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -321,7 +367,7 @@
                                 <span class="exercise-name">Elevação lateral</span>
                                 <span class="exercise-target">Deltoide lateral. Sinta a lateral do ombro queimar, mantendo trapézio e balanço sob controle.</span>
                             </div>
-                            <span class="exercise-sets">4x 15</span>
+                            <span class="exercise-sets">4x 12-20</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -332,7 +378,7 @@
                                 <span class="exercise-name">Posterior de ombro</span>
                                 <span class="exercise-target">Deltoide posterior, romboides e trapézio médio. Sinta a parte de trás do ombro abrindo o movimento.</span>
                             </div>
-                            <span class="exercise-sets">4x 15</span>
+                            <span class="exercise-sets">3x 12-15</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -343,7 +389,7 @@
                                 <span class="exercise-name">Encolhimento</span>
                                 <span class="exercise-target">Trapézio superior. Sinta os ombros subirem retos, sem girar, e segure a contração no alto.</span>
                             </div>
-                            <span class="exercise-sets">4x 12</span>
+                            <span class="exercise-sets">3x 10-12</span>
                         </li>
                     </ul>
                 </div>
@@ -356,19 +402,9 @@
                 </div>
                 <div class="workout-details">
                     <h2 class="day-title">Sexta-feira</h2>
-                    <p class="muscle-group">Peito • Braços</p>
+                    <p class="muscle-group">Peito leve • Braços</p>
+                    <p class="day-note">Volume de acabamento: busque contração limpa e preserve articulações para recuperar bem.</p>
                     <ul class="exercise-list">
-                        <li class="exercise-item has-illustration">
-                            <div class="exercise-illustration">
-                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Incline_Dumbbell_Press/0.jpg" loading="lazy">
-                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Incline_Dumbbell_Press/1.jpg" loading="lazy">
-                            </div>
-                            <div class="exercise-info">
-                                <span class="exercise-name">Supino inclinado</span>
-                                <span class="exercise-target">Peitoral superior, ombro frontal e tríceps. Sinta a parte alta do peito empurrar a carga.</span>
-                            </div>
-                            <span class="exercise-sets">4x 10</span>
-                        </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
                                 <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Machine_Bench_Press/0.jpg" loading="lazy">
@@ -378,7 +414,18 @@
                                 <span class="exercise-name">Supino máquina</span>
                                 <span class="exercise-target">Peitoral, tríceps e deltoide frontal. Sinta o peito empurrando com as escápulas firmes no banco.</span>
                             </div>
-                            <span class="exercise-sets">4x 10</span>
+                            <span class="exercise-sets">3x 8-12</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Cable_Crossover/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Cable_Crossover/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Crossover no cabo</span>
+                                <span class="exercise-target">Peitoral com tensão constante. Sinta o peito aproximar os braços sem transformar em empurrão.</span>
+                            </div>
+                            <span class="exercise-sets">3x 12-15</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -389,7 +436,7 @@
                                 <span class="exercise-name">Rosca direta</span>
                                 <span class="exercise-target">Bíceps braquial. Sinta a frente do braço flexionar sem roubar com ombros ou lombar.</span>
                             </div>
-                            <span class="exercise-sets">4x 10</span>
+                            <span class="exercise-sets">3x 8-12</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -400,7 +447,7 @@
                                 <span class="exercise-name">Rosca martelo</span>
                                 <span class="exercise-target">Braquial, braquiorradial e bíceps. Sinta antebraço e lateral do braço trabalhando juntos.</span>
                             </div>
-                            <span class="exercise-sets">3x 12</span>
+                            <span class="exercise-sets">3x 10-12</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -411,7 +458,7 @@
                                 <span class="exercise-name">Tríceps corda</span>
                                 <span class="exercise-target">Tríceps, com foco na cabeça lateral e contração final. Sinta o braço estender até o fim.</span>
                             </div>
-                            <span class="exercise-sets">4x 12</span>
+                            <span class="exercise-sets">3x 10-12</span>
                         </li>
                         <li class="exercise-item has-illustration">
                             <div class="exercise-illustration">
@@ -422,7 +469,115 @@
                                 <span class="exercise-name">Tríceps francês</span>
                                 <span class="exercise-target">Tríceps, com foco na cabeça longa. Sinta o alongamento atrás do braço e estenda sem abrir os cotovelos.</span>
                             </div>
-                            <span class="exercise-sets">3x 12</span>
+                            <span class="exercise-sets">3x 12-15</span>
+                        </li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Casa -->
+            <article class="workout-day" id="casa">
+                <div class="workout-image">
+                    <img src="assets/legs.png" alt="Ilustração de treino em casa">
+                </div>
+                <div class="workout-details">
+                    <h2 class="day-title">Treino em casa</h2>
+                    <p class="muscle-group">Abdômen • Core • Cardio</p>
+                    <p class="day-note">Use 2-4 vezes na semana, em dias sem academia ou depois de treinos mais leves. Faça 3-4 voltas, descansando 30-45 s entre exercícios e 90 s entre voltas.</p>
+
+                    <h3 class="routine-title">Bloco de abdômen</h3>
+                    <ul class="exercise-list home-list">
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Prancha</span>
+                                <span class="exercise-target">Core profundo e abdômen. Sinta a barriga travada, glúteos ativos e lombar neutra.</span>
+                            </div>
+                            <span class="exercise-sets">30-60s</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunches/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunches/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Crunch no chão</span>
+                                <span class="exercise-target">Reto abdominal. Sinta as costelas aproximando do quadril sem puxar o pescoço.</span>
+                            </div>
+                            <span class="exercise-sets">15-20</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Reverse_Crunch/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Reverse_Crunch/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Crunch reverso</span>
+                                <span class="exercise-target">Abdômen inferior e controle pélvico. Sinta o quadril enrolar sem embalar as pernas.</span>
+                            </div>
+                            <span class="exercise-sets">12-15</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Bridge/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Bridge/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Prancha lateral</span>
+                                <span class="exercise-target">Oblíquos e estabilizadores do quadril. Sinta a lateral do abdômen sustentar o corpo alinhado.</span>
+                            </div>
+                            <span class="exercise-sets">25-45s/lado</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="routine-title">Cardio em casa</h3>
+                    <ul class="exercise-list home-list">
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Mountain_Climbers/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Mountain_Climbers/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Mountain climber</span>
+                                <span class="exercise-target">Core, flexores do quadril e condicionamento. Sinta o tronco firme enquanto os joelhos alternam rápido.</span>
+                            </div>
+                            <span class="exercise-sets">30-40s</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Star_Jump/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Star_Jump/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Polichinelo</span>
+                                <span class="exercise-target">Cardio geral, panturrilhas e ombros. Sinta o ritmo subir sem perder aterrissagem leve.</span>
+                            </div>
+                            <span class="exercise-sets">40-60s</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Rope_Jumping/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Rope_Jumping/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Pular corda</span>
+                                <span class="exercise-target">Cardio, panturrilhas e coordenação. Sinta saltos baixos, respiração constante e tornozelos elásticos.</span>
+                            </div>
+                            <span class="exercise-sets">40-60s</span>
+                        </li>
+                        <li class="exercise-item has-illustration">
+                            <div class="exercise-illustration">
+                                <img class="frame" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bodyweight_Squat/0.jpg" loading="lazy">
+                                <img class="frame frame-alt" src="https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bodyweight_Squat/1.jpg" loading="lazy">
+                            </div>
+                            <div class="exercise-info">
+                                <span class="exercise-name">Agachamento com peso corporal</span>
+                                <span class="exercise-target">Quadríceps, glúteos e fôlego. Sinta pés firmes, joelhos alinhados e subida contínua.</span>
+                            </div>
+                            <span class="exercise-sets">15-25</span>
                         </li>
                     </ul>
                 </div>

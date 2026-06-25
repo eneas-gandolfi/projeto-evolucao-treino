@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const EXERCISE_IMAGE_BASE = 'https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises';
-    const STORAGE_KEY = 'projeto-evolucao-substitutions-v1';
+    const STORAGE_KEY = 'projeto-evolucao-substitutions-v2';
 
     const frameSet = (id) => [
         `${EXERCISE_IMAGE_BASE}/${id}/0.jpg`,
@@ -44,14 +44,25 @@ document.addEventListener('DOMContentLoaded', () => {
         'Leg press': [muscle('quads'), muscle('glutes'), muscle('hamstrings', 'secondary'), muscle('calves', 'secondary')],
         'Agachamento guiado': [muscle('quads'), muscle('glutes'), muscle('hamstrings', 'secondary'), muscle('core', 'secondary')],
         'Mesa flexora': [muscle('hamstrings'), muscle('calves', 'secondary')],
+        'Stiff com halteres': [muscle('hamstrings'), muscle('glutes'), muscle('core', 'secondary')],
         'Cadeira extensora': [muscle('quads')],
         'Panturrilha sentado': [muscle('calves')],
         'Panturrilha em pé': [muscle('calves')],
+        'Prancha': [muscle('core')],
+        'Face pull': [muscle('rearShoulder'), muscle('midBack', 'secondary'), muscle('traps', 'secondary')],
         'Posterior de ombro': [muscle('rearShoulder'), muscle('midBack', 'secondary'), muscle('traps', 'secondary')],
         'Encolhimento': [muscle('traps')],
         'Supino inclinado': [muscle('upperChest'), muscle('frontShoulder', 'secondary'), muscle('triceps', 'secondary')],
         'Supino máquina': [muscle('chest'), muscle('frontShoulder', 'secondary'), muscle('triceps', 'secondary')],
-        'Tríceps francês': [muscle('triceps')]
+        'Crossover no cabo': [muscle('chest'), muscle('frontShoulder', 'secondary')],
+        'Tríceps francês': [muscle('triceps')],
+        'Crunch no chão': [muscle('core')],
+        'Crunch reverso': [muscle('core')],
+        'Prancha lateral': [muscle('core'), muscle('glutes', 'secondary')],
+        'Mountain climber': [muscle('core'), muscle('quads', 'secondary'), muscle('frontShoulder', 'secondary')],
+        'Polichinelo': [muscle('calves'), muscle('quads', 'secondary'), muscle('sideShoulder', 'secondary')],
+        'Pular corda': [muscle('calves'), muscle('forearms', 'secondary'), muscle('core', 'secondary')],
+        'Agachamento com peso corporal': [muscle('quads'), muscle('glutes'), muscle('core', 'secondary')]
     };
 
     const alt = (name, target, muscles, imageId) => ({ name, target, muscles, frames: frameSet(imageId) });
@@ -132,6 +143,11 @@ document.addEventListener('DOMContentLoaded', () => {
             alt('Stiff com barra', 'Posteriores, glúteos e lombar estabilizando. Sinta alongar atrás da coxa sem arredondar as costas.', [muscle('hamstrings'), muscle('glutes'), muscle('core', 'secondary')], 'Stiff-Legged_Barbell_Deadlift'),
             alt('Levantamento terra romeno', 'Posteriores e glúteos. Sinta o quadril indo para trás e a coxa alongando.', [muscle('hamstrings'), muscle('glutes'), muscle('core', 'secondary')], 'Romanian_Deadlift')
         ],
+        'Stiff com halteres': [
+            alt('Levantamento terra romeno', 'Posteriores e glúteos. Sinta o quadril indo para trás e a coxa alongando.', EXERCISE_MUSCLES['Stiff com halteres'], 'Romanian_Deadlift'),
+            alt('Stiff com barra', 'Posteriores, glúteos e lombar estabilizando. Sinta alongar atrás da coxa sem arredondar as costas.', EXERCISE_MUSCLES['Stiff com halteres'], 'Stiff-Legged_Barbell_Deadlift'),
+            alt('Stiff no Smith', 'Posteriores e glúteos com trajetória guiada. Sinta alongar atrás da coxa mantendo coluna neutra.', EXERCISE_MUSCLES['Stiff com halteres'], 'Smith_Machine_Stiff-Legged_Deadlift')
+        ],
         'Cadeira extensora': [
             alt('Sissy squat com peso', 'Quadríceps em alta tensão. Sinta a frente da coxa controlar toda a amplitude.', EXERCISE_MUSCLES['Cadeira extensora'], 'Weighted_Sissy_Squat'),
             alt('Agachamento frontal', 'Quadríceps, glúteos e core. Sinta a frente da coxa com tronco mais vertical.', [muscle('quads'), muscle('glutes', 'secondary'), muscle('core', 'secondary')], 'Barbell_Full_Squat'),
@@ -146,6 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
             alt('Panturrilha no Smith', 'Gastrocnêmio e sóleo. Sinta a panturrilha subir sem dobrar os joelhos.', EXERCISE_MUSCLES['Panturrilha em pé'], 'Smith_Machine_Calf_Raise'),
             alt('Panturrilha no leg press', 'Panturrilhas com carga estável. Sinta o tornozelo fazer todo o movimento.', EXERCISE_MUSCLES['Panturrilha em pé'], 'Calf_Press_On_The_Leg_Press_Machine'),
             alt('Panturrilha unilateral com halter', 'Panturrilha com controle lado a lado. Sinta amplitude total em cada perna.', EXERCISE_MUSCLES['Panturrilha em pé'], 'Calf_Raise_On_A_Dumbbell')
+        ],
+        'Prancha': [
+            alt('Abdominal máquina', 'Abdômen com resistência guiada. Sinta o tronco flexionar sem puxar com braços ou quadril.', EXERCISE_MUSCLES['Prancha'], 'Ab_Crunch_Machine'),
+            alt('Crunch no cabo', 'Abdômen com tensão constante. Sinta as costelas aproximando do quadril com controle.', EXERCISE_MUSCLES['Prancha'], 'Cable_Crunch'),
+            alt('Crunch reverso', 'Abdômen inferior e controle pélvico. Sinta o quadril enrolar sem embalar as pernas.', EXERCISE_MUSCLES['Prancha'], 'Reverse_Crunch')
+        ],
+        'Face pull': [
+            alt('Posterior de ombro máquina', 'Deltoide posterior, romboides e trapézio médio. Sinta a parte de trás do ombro abrir o movimento.', EXERCISE_MUSCLES['Posterior de ombro'], 'Reverse_Machine_Flyes'),
+            alt('Crucifixo inverso com halteres', 'Deltoide posterior e meio das costas. Sinta abrir os braços sem encolher o pescoço.', EXERCISE_MUSCLES['Face pull'], 'Reverse_Flyes'),
+            alt('Elevação posterior deitado', 'Deltoide posterior com tronco apoiado. Sinta a parte de trás do ombro levantar a carga.', EXERCISE_MUSCLES['Face pull'], 'Dumbbell_Lying_Rear_Lateral_Raise')
         ],
         'Posterior de ombro': [
             alt('Face pull', 'Deltoide posterior, trapézio médio e rotadores. Sinta puxar para o rosto abrindo os cotovelos.', EXERCISE_MUSCLES['Posterior de ombro'], 'Face_Pull'),
@@ -167,10 +193,50 @@ document.addEventListener('DOMContentLoaded', () => {
             alt('Supino reto com halteres', 'Peitoral médio, ombro frontal e tríceps. Sinta o peito estabilizar e empurrar os halteres.', EXERCISE_MUSCLES['Supino máquina'], 'Dumbbell_Bench_Press'),
             alt('Supino no Smith', 'Peitoral com trajetória guiada. Sinta o peito empurrar mantendo escápulas firmes.', EXERCISE_MUSCLES['Supino máquina'], 'Smith_Machine_Bench_Press')
         ],
+        'Crossover no cabo': [
+            alt('Crucifixo máquina', 'Peitoral com foco em adução. Sinta o peito fechando o movimento, não os braços puxando.', EXERCISE_MUSCLES['Crucifixo máquina'], 'Butterfly'),
+            alt('Crossover baixo', 'Peitoral superior em adução. Sinta as fibras altas aproximando os braços na frente do peito.', [muscle('upperChest'), muscle('frontShoulder', 'secondary')], 'Low_Cable_Crossover'),
+            alt('Crossover unilateral', 'Peitoral com controle lado a lado. Sinta cada lado fechar o movimento sem girar o tronco.', EXERCISE_MUSCLES['Crossover no cabo'], 'Single-Arm_Cable_Crossover')
+        ],
         'Tríceps francês': [
             alt('Tríceps testa no cabo', 'Tríceps com controle de cotovelos. Sinta o braço estender sem abrir para os lados.', EXERCISE_MUSCLES['Tríceps francês'], 'Cable_Lying_Triceps_Extension'),
             alt('Tríceps acima da cabeça na corda', 'Tríceps, principalmente cabeça longa. Sinta o alongamento atrás do braço.', EXERCISE_MUSCLES['Tríceps francês'], 'Cable_Rope_Overhead_Triceps_Extension'),
             alt('Tríceps unilateral com halter', 'Tríceps com foco lado a lado. Sinta o alongamento e estenda o cotovelo até o fim.', EXERCISE_MUSCLES['Tríceps francês'], 'Dumbbell_One-Arm_Triceps_Extension')
+        ],
+        'Crunch no chão': [
+            alt('Crunch com mãos acima da cabeça', 'Reto abdominal com mais alavanca. Sinta o abdômen flexionar o tronco sem puxar o pescoço.', EXERCISE_MUSCLES['Crunch no chão'], 'Crunch_-_Hands_Overhead'),
+            alt('Crunch oblíquo', 'Abdômen e oblíquos. Sinta a lateral do tronco aproximar costelas e quadril com controle.', [muscle('core')], 'Oblique_Crunches_-_On_The_Floor'),
+            alt('Tuck crunch', 'Abdômen com joelhos e tronco aproximando juntos. Sinta a contração no centro do core.', EXERCISE_MUSCLES['Crunch no chão'], 'Tuck_Crunch')
+        ],
+        'Crunch reverso': [
+            alt('Tuck crunch', 'Abdômen inferior e reto abdominal. Sinta o quadril enrolar sem jogar as pernas.', EXERCISE_MUSCLES['Crunch reverso'], 'Tuck_Crunch'),
+            alt('Decline reverse crunch', 'Abdômen inferior com maior amplitude. Sinta a pelve subir sem embalar o corpo.', EXERCISE_MUSCLES['Crunch reverso'], 'Decline_Reverse_Crunch'),
+            alt('Suspended reverse crunch', 'Core com maior demanda de estabilidade. Sinta o abdômen controlar a subida dos joelhos.', EXERCISE_MUSCLES['Crunch reverso'], 'Suspended_Reverse_Crunch')
+        ],
+        'Prancha lateral': [
+            alt('Side bridge', 'Oblíquos e glúteo médio. Sinta a lateral do tronco sustentar o corpo alinhado.', EXERCISE_MUSCLES['Prancha lateral'], 'Side_Bridge'),
+            alt('Side jackknife', 'Oblíquos com flexão lateral. Sinta a lateral do abdômen encurtar sem puxar o pescoço.', [muscle('core')], 'Side_Jackknife'),
+            alt('Push up to side plank', 'Core, peitoral e ombros. Sinta o tronco estabilizar na rotação para a prancha lateral.', [muscle('core'), muscle('chest', 'secondary'), muscle('frontShoulder', 'secondary')], 'Push_Up_to_Side_Plank')
+        ],
+        'Mountain climber': [
+            alt('Push up to side plank', 'Core, ombros e condicionamento. Sinta estabilidade no tronco durante a transição.', [muscle('core'), muscle('frontShoulder', 'secondary'), muscle('chest', 'secondary')], 'Push_Up_to_Side_Plank'),
+            alt('Scissors jump', 'Cardio e pernas com troca rápida. Sinta aterrissagem leve e ritmo contínuo.', [muscle('quads'), muscle('calves'), muscle('core', 'secondary')], 'Scissors_Jump'),
+            alt('Split jump', 'Cardio, quadríceps e glúteos. Sinta potência sem perder alinhamento dos joelhos.', [muscle('quads'), muscle('glutes'), muscle('calves', 'secondary')], 'Split_Jump')
+        ],
+        'Polichinelo': [
+            alt('Star jump', 'Cardio geral com maior intensidade. Sinta saltos leves e braços coordenados.', EXERCISE_MUSCLES['Polichinelo'], 'Star_Jump'),
+            alt('Side hop-sprint', 'Cardio lateral, panturrilhas e pernas. Sinta deslocamento rápido mantendo controle.', [muscle('calves'), muscle('quads'), muscle('core', 'secondary')], 'Side_Hop-Sprint'),
+            alt('Rope jumping', 'Cardio e panturrilhas. Sinta saltos baixos e respiração estável.', EXERCISE_MUSCLES['Pular corda'], 'Rope_Jumping')
+        ],
+        'Pular corda': [
+            alt('Polichinelo', 'Cardio geral sem equipamento. Sinta o ritmo subir com aterrissagem suave.', EXERCISE_MUSCLES['Polichinelo'], 'Star_Jump'),
+            alt('Side to side box shuffle', 'Cardio lateral e coordenação. Sinta deslocamentos curtos e rápidos.', [muscle('calves'), muscle('quads'), muscle('core', 'secondary')], 'Side_to_Side_Box_Shuffle'),
+            alt('Mountain climber', 'Core e cardio sem impacto vertical. Sinta o tronco firme enquanto alterna os joelhos.', EXERCISE_MUSCLES['Mountain climber'], 'Mountain_Climbers')
+        ],
+        'Agachamento com peso corporal': [
+            alt('Agachamento na cadeira', 'Quadríceps e glúteos com referência de amplitude. Sinta sentar e levantar sem relaxar no apoio.', EXERCISE_MUSCLES['Agachamento com peso corporal'], 'Chair_Squat'),
+            alt('Agachamento com salto', 'Pernas e cardio com explosão. Sinta aterrissagem macia e joelhos alinhados.', [muscle('quads'), muscle('glutes'), muscle('calves', 'secondary')], 'Freehand_Jump_Squat'),
+            alt('Speed squats', 'Quadríceps, glúteos e condicionamento. Sinta repetições rápidas mantendo amplitude segura.', EXERCISE_MUSCLES['Agachamento com peso corporal'], 'Speed_Squats')
         ]
     };
 

@@ -58,6 +58,38 @@ main {
   padding: 0 2rem 3.5rem;
 }
 
+.training-guide {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+.guide-item {
+  min-height: 116px;
+  padding: 0.85rem;
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.guide-label {
+  display: block;
+  margin-bottom: 0.42rem;
+  color: var(--accent-1);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.guide-item p {
+  color: var(--text-secondary);
+  font-size: 0.84rem;
+  line-height: 1.38;
+}
+
 /* Filters / Tabs */
 .days-filter {
   display: flex;
@@ -144,8 +176,26 @@ main {
 .muscle-group {
   font-size: 0.84rem;
   color: var(--text-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.35rem;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.day-note {
+  max-width: 720px;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.routine-title {
+  margin: 0.25rem 0 0.65rem;
+  color: var(--accent-1);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -155,6 +205,10 @@ main {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.65rem;
+}
+
+.home-list + .routine-title {
+  margin-top: 1rem;
 }
 
 .exercise-item {
@@ -691,6 +745,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 860px) {
+  .training-guide {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .workout-day {
     grid-template-columns: 1fr;
   }
@@ -737,6 +795,26 @@ footer {
     font-size: 1rem;
   }
 
+  .training-guide {
+    display: flex;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding: 0 1rem 0.2rem;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .training-guide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .guide-item {
+    flex: 0 0 min(78vw, 300px);
+    min-height: 118px;
+    scroll-snap-align: start;
+  }
+
   .days-filter {
     position: fixed;
     left: 0;
@@ -780,6 +858,10 @@ footer {
 
   .day-title {
     font-size: 1.28rem;
+  }
+
+  .day-note {
+    font-size: 0.82rem;
   }
 
   .exercise-item {
