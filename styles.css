@@ -159,11 +159,11 @@ main {
 
 .exercise-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
-  min-height: 70px;
-  padding: 0.55rem 0.65rem;
+  min-height: 96px;
+  padding: 0.68rem;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -185,6 +185,7 @@ main {
   position: relative;
   width: 52px;
   height: 52px;
+  margin-top: 0.12rem;
   border-radius: 8px;
   overflow: hidden;
   flex-shrink: 0;
@@ -208,9 +209,12 @@ main {
 
 .exercise-info {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   flex: 1;
   min-width: 0;
+  gap: 0.28rem;
 }
 
 .exercise-icon {
@@ -230,7 +234,233 @@ main {
   line-height: 1.25;
 }
 
+.exercise-target {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.muscle-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.1rem;
+}
+
+.muscle-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  min-height: 30px;
+  padding: 0.18rem 0.42rem 0.18rem 0.28rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+.muscle-badge.is-secondary {
+  color: var(--text-secondary);
+}
+
+.muscle-figure {
+  position: relative;
+  width: 22px;
+  height: 28px;
+  flex: 0 0 22px;
+}
+
+.muscle-body,
+.muscle-marker {
+  position: absolute;
+  display: block;
+}
+
+.muscle-body {
+  background: rgba(170, 178, 189, 0.42);
+}
+
+.muscle-body.head {
+  top: 1px;
+  left: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.muscle-body.torso {
+  top: 8px;
+  left: 7px;
+  width: 8px;
+  height: 11px;
+  border-radius: 7px 7px 4px 4px;
+}
+
+.muscle-body.arm {
+  top: 9px;
+  width: 4px;
+  height: 12px;
+  border-radius: 4px;
+}
+
+.muscle-body.arm-left {
+  left: 3px;
+  transform: rotate(10deg);
+}
+
+.muscle-body.arm-right {
+  right: 3px;
+  transform: rotate(-10deg);
+}
+
+.muscle-body.leg {
+  top: 19px;
+  width: 4px;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.muscle-body.leg-left {
+  left: 7px;
+}
+
+.muscle-body.leg-right {
+  right: 7px;
+}
+
+.muscle-marker {
+  z-index: 1;
+  background: var(--accent-1);
+  border: 1px solid rgba(16, 19, 24, 0.45);
+  box-shadow: 0 0 0 2px rgba(155, 214, 111, 0.18);
+}
+
+.is-secondary .muscle-marker {
+  background: var(--accent-2);
+  box-shadow: 0 0 0 2px rgba(240, 184, 75, 0.16);
+}
+
+.muscle-chest .muscle-marker,
+.muscle-upperChest .muscle-marker {
+  left: 7px;
+  width: 8px;
+  height: 5px;
+  border-radius: 6px 6px 3px 3px;
+}
+
+.muscle-chest .muscle-marker {
+  top: 10px;
+}
+
+.muscle-upperChest .muscle-marker {
+  top: 8px;
+}
+
+.muscle-frontShoulder .muscle-marker,
+.muscle-sideShoulder .muscle-marker,
+.muscle-rearShoulder .muscle-marker {
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.muscle-frontShoulder .muscle-marker,
+.muscle-sideShoulder .muscle-marker {
+  left: 4px;
+}
+
+.muscle-rearShoulder .muscle-marker {
+  right: 4px;
+}
+
+.muscle-triceps .muscle-marker,
+.muscle-biceps .muscle-marker,
+.muscle-forearms .muscle-marker {
+  width: 4px;
+  border-radius: 4px;
+}
+
+.muscle-triceps .muscle-marker {
+  top: 12px;
+  right: 3px;
+  height: 8px;
+}
+
+.muscle-biceps .muscle-marker {
+  top: 10px;
+  left: 3px;
+  height: 7px;
+}
+
+.muscle-forearms .muscle-marker {
+  top: 16px;
+  left: 2px;
+  height: 7px;
+}
+
+.muscle-lats .muscle-marker,
+.muscle-midBack .muscle-marker,
+.muscle-traps .muscle-marker,
+.muscle-core .muscle-marker {
+  left: 7px;
+  width: 8px;
+  border-radius: 5px;
+}
+
+.muscle-lats .muscle-marker {
+  top: 11px;
+  height: 8px;
+}
+
+.muscle-midBack .muscle-marker {
+  top: 10px;
+  height: 6px;
+}
+
+.muscle-traps .muscle-marker {
+  top: 7px;
+  height: 4px;
+}
+
+.muscle-core .muscle-marker {
+  top: 14px;
+  height: 5px;
+}
+
+.muscle-quads .muscle-marker,
+.muscle-glutes .muscle-marker,
+.muscle-hamstrings .muscle-marker,
+.muscle-calves .muscle-marker {
+  border-radius: 5px;
+}
+
+.muscle-quads .muscle-marker,
+.muscle-hamstrings .muscle-marker {
+  top: 19px;
+  left: 7px;
+  width: 8px;
+  height: 5px;
+}
+
+.muscle-glutes .muscle-marker {
+  top: 17px;
+  left: 7px;
+  width: 8px;
+  height: 4px;
+}
+
+.muscle-calves .muscle-marker {
+  top: 23px;
+  left: 7px;
+  width: 8px;
+  height: 4px;
+}
+
 .exercise-sets {
+  margin-top: 0.1rem;
   font-weight: 800;
   color: #101318;
   background: var(--accent-2);
@@ -323,6 +553,108 @@ body.modal-open {
   font-weight: 800;
 }
 
+.exercise-modal__target {
+  margin: -0.3rem 0 1rem 0.25rem;
+  max-width: 720px;
+  color: #4d5966;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.exercise-modal__muscles {
+  margin: -0.35rem 0 1rem 0.25rem;
+}
+
+.exercise-modal__muscles .muscle-badge {
+  border-color: rgba(17, 24, 32, 0.1);
+  background: #ffffff;
+  color: #111820;
+}
+
+.exercise-modal__muscles .muscle-badge.is-secondary {
+  color: #4d5966;
+}
+
+.exercise-modal__muscles .muscle-body {
+  background: rgba(77, 89, 102, 0.28);
+}
+
+.exercise-modal__swap {
+  margin: 0 0 1rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(17, 24, 32, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.exercise-modal__swap h3 {
+  margin-bottom: 0.65rem;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: #111820;
+}
+
+.exercise-modal__options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.exercise-modal__option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  min-height: 76px;
+  padding: 0.62rem;
+  border: 1px solid rgba(17, 24, 32, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111820;
+  font-family: var(--font-main);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.exercise-modal__option:hover,
+.exercise-modal__option:focus-visible {
+  border-color: rgba(16, 19, 24, 0.4);
+  outline: none;
+}
+
+.exercise-modal__option:disabled {
+  cursor: default;
+  border-color: rgba(155, 214, 111, 0.6);
+  background: rgba(155, 214, 111, 0.16);
+}
+
+.exercise-modal__option-name {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.exercise-modal__option-current {
+  padding: 0.16rem 0.35rem;
+  border-radius: 999px;
+  background: var(--accent-1);
+  color: #101318;
+  font-size: 0.64rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.exercise-modal__option-target {
+  color: #4d5966;
+  font-size: 0.78rem;
+  line-height: 1.3;
+}
+
 .exercise-modal__images {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -371,12 +703,20 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .exercise-modal__options {
+    grid-template-columns: 1fr;
+  }
+
   .exercise-modal__figure {
     min-height: 300px;
   }
 }
 
 @media (max-width: 560px) {
+  body {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
   header,
   main,
   footer {
@@ -398,19 +738,24 @@ footer {
   }
 
   .days-filter {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
     z-index: 10;
     flex-wrap: nowrap;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    margin-bottom: 1rem;
-    padding: 0.75rem 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
     overflow-x: auto;
     background: rgba(16, 19, 24, 0.92);
-    border-bottom: 1px solid var(--panel-border);
+    border-top: 1px solid var(--panel-border);
     backdrop-filter: blur(12px);
     scrollbar-width: none;
+    scroll-padding-inline: 1rem;
+    scroll-snap-type: x proximity;
+    box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.26);
   }
 
   .days-filter::-webkit-scrollbar {
@@ -420,6 +765,9 @@ footer {
   .day-btn {
     flex: 0 0 auto;
     white-space: nowrap;
+    scroll-snap-align: center;
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
   }
 
   .workout-container {
@@ -435,9 +783,33 @@ footer {
   }
 
   .exercise-item {
-    align-items: center;
-    min-height: 74px;
-    padding: 0.65rem;
+    align-items: flex-start;
+    min-height: 112px;
+    padding: 0.72rem;
+    gap: 0.65rem;
+  }
+
+  .exercise-illustration {
+    width: 48px;
+    height: 48px;
+  }
+
+  .exercise-name {
+    font-size: 0.95rem;
+  }
+
+  .exercise-target {
+    font-size: 0.8rem;
+  }
+
+  .muscle-strip {
+    gap: 0.28rem;
+  }
+
+  .muscle-badge {
+    min-height: 28px;
+    padding-right: 0.34rem;
+    font-size: 0.68rem;
   }
 
   .exercise-sets {
@@ -465,6 +837,19 @@ footer {
 
   .exercise-modal__header h2 {
     font-size: 1.45rem;
+  }
+
+  .exercise-modal__target {
+    margin: -0.25rem 0 0.8rem 0.1rem;
+    font-size: 0.92rem;
+  }
+
+  .exercise-modal__muscles {
+    margin-left: 0.1rem;
+  }
+
+  .exercise-modal__swap {
+    padding: 0.7rem;
   }
 
   .exercise-modal__figure {

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'projeto-evolucao-v1';
+const CACHE_NAME = 'projeto-evolucao-v3';
 const LOCAL_ASSETS = [
   './',
   './index.html',
@@ -6,7 +6,9 @@ const LOCAL_ASSETS = [
   './script.js',
   './manifest.json',
   './icon.svg',
-  './assets/chest.png'
+  './assets/chest.png',
+  './assets/back.png',
+  './assets/legs.png'
 ];
 
 const EXERCISE_IMAGES = [
