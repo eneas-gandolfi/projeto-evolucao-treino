@@ -1,4 +1,4 @@
-const CACHE_NAME = 'projeto-evolucao-v3';
+const CACHE_NAME = 'projeto-evolucao-v4';
 const LOCAL_ASSETS = [
   './',
   './index.html',
@@ -89,7 +89,33 @@ self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(event.request).then(cached => {
+    (async () => {
+      const requestUrl = new URL(event.request.url);
+      const isLocalRequest = requestUrl.origin === self.location.origin;
+
+      if (event.request.mode === 'navigate') {
+        try {
+          const response = await fetch(event.request);
+          const cache = await caches.open(CACHE_NAME);
+          await cache.put('./index.html', response.clone());
+          return response;
+        } catch {
+          return caches.match('./index.html');
+        }
+      }
+
+      if (isLocalRequest) {
+        try {
+          const response = await fetch(event.request);
+          const cache = await caches.open(CACHE_NAME);
+          await cache.put(event.request, response.clone());
+          return response;
+        } catch {
+          return caches.match(event.request);
+        }
+      }
+
+      const cached = await caches.match(event.request);
       if (cached) return cached;
 
       return fetch(event.request).then(response => {
@@ -105,6 +131,6 @@ self.addEventListener('fetch', event => {
           return caches.match('./index.html');
         }
       });
-    })
+    })()
   );
 });
