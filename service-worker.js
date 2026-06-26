@@ -1,4 +1,4 @@
-const CACHE_NAME = 'projeto-evolucao-v6';
+const CACHE_NAME = 'projeto-evolucao-v8';
 const LOCAL_ASSETS = [
   './',
   './index.html',
