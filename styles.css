@@ -1,37 +1,42 @@
 /* =========================================================
-   PROJETO EVOLUÇÃO — "Performance Index"
-   Editorial atlético / placar esportivo
-   Display: Anton · Corpo: Archivo · Dados: IBM Plex Mono
+   PROJETO EVOLUÇÃO — "Premium Claro"
+   Editorial calmo / refinado · acento esmeralda
+   Display: Bricolage Grotesque · Corpo: Hanken Grotesk
    ========================================================= */
 
 :root {
-  --bg: #0a0a0b;
-  --bg-2: #0e0e11;
-  --surface: #141418;
-  --surface-2: #1a1a1f;
-  --line: rgba(242, 242, 236, 0.10);
-  --line-strong: rgba(242, 242, 236, 0.2);
+  --bg: #f7f7f4;
+  --bg-2: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f5f2;
+  --line: rgba(20, 22, 26, 0.08);
+  --line-strong: rgba(20, 22, 26, 0.14);
 
-  --text-primary: #f2f2ec;
-  --text-secondary: #8d8d96;
-  --text-tertiary: #5a5a62;
+  --text-primary: #14171a;
+  --text-secondary: #5c6268;
+  --text-tertiary: #9aa0a6;
 
-  /* Acento de assinatura (único, marcante) */
-  --volt: #ff3b19;
-  --volt-bright: #ff5a3c;
-  --volt-soft: rgba(255, 59, 25, 0.14);
-  --volt-line: rgba(255, 59, 25, 0.4);
+  /* Acento de assinatura — esmeralda */
+  --accent: #0e9e6e;
+  --accent-strong: #0a7d58;
+  --accent-bright: #16b67f;
+  --accent-soft: rgba(14, 158, 110, 0.1);
+  --accent-line: rgba(14, 158, 110, 0.32);
 
   /* Aliases consumidos pelos marcadores de músculo (script + CSS) */
-  --accent-1: var(--volt);
-  --accent-2: #cfcfc7;
+  --accent-1: var(--accent);
+  --accent-2: #b9bfc4;
 
-  --font-display: "Anton", "Archivo", system-ui, sans-serif;
-  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-display: "Bricolage Grotesque", "Hanken Grotesk", system-ui, sans-serif;
+  --font-body: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --radius: 4px;
-  --radius-lg: 6px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-sm: 10px;
+
+  --shadow-sm: 0 1px 2px rgba(20, 22, 26, 0.04), 0 1px 1px rgba(20, 22, 26, 0.03);
+  --shadow: 0 1px 2px rgba(20, 22, 26, 0.04), 0 12px 32px rgba(20, 22, 26, 0.06);
+  --shadow-lg: 0 2px 6px rgba(20, 22, 26, 0.05), 0 28px 60px rgba(20, 22, 26, 0.12);
 }
 
 * {
@@ -51,29 +56,18 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: var(--volt-soft);
+  -webkit-tap-highlight-color: var(--accent-soft);
   touch-action: manipulation;
   background-image:
-    radial-gradient(120% 70% at 100% -10%, var(--volt-soft), transparent 55%),
-    radial-gradient(90% 60% at -10% 0%, rgba(242, 242, 236, 0.05), transparent 50%),
-    linear-gradient(180deg, var(--bg-2), var(--bg) 420px);
+    radial-gradient(110% 70% at 100% -8%, var(--accent-soft), transparent 52%),
+    radial-gradient(90% 55% at -10% 0%, rgba(20, 22, 26, 0.025), transparent 50%),
+    linear-gradient(180deg, var(--bg-2), var(--bg) 460px);
   background-attachment: fixed;
 }
 
-/* Camada de grão para textura/atmosfera */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
 ::selection {
-  background: var(--volt);
-  color: #0a0a0b;
+  background: var(--accent);
+  color: #ffffff;
 }
 
 /* =========================================================
@@ -89,85 +83,84 @@ header {
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.6rem;
   margin-bottom: 1.1rem;
-  font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.22em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--accent-strong);
 }
 
 .eyebrow::before {
   content: "";
-  width: 28px;
+  width: 26px;
   height: 2px;
-  background: var(--volt);
+  border-radius: 2px;
+  background: var(--accent);
 }
 
 header h1 {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 11vw, 7.5rem);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.005em;
-  line-height: 0.86;
-  margin-bottom: 1.1rem;
+  font-size: clamp(3rem, 10.5vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 0.92;
+  margin-bottom: 1.2rem;
+  color: var(--text-primary);
 }
 
 header h1 .accent {
-  color: var(--volt);
-  -webkit-text-stroke: 0;
+  color: var(--accent);
 }
 
 header p {
-  font-size: 1.05rem;
+  font-size: 1.06rem;
   color: var(--text-secondary);
   max-width: 620px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
-/* Faixa de estatísticas */
+/* Faixa de estatísticas — pílulas suaves */
 .stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
-  margin-top: 1.8rem;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  gap: 0.7rem;
+  margin-top: 1.9rem;
 }
 
 .stat {
   flex: 1 1 0;
-  min-width: 120px;
-  padding: 0.9rem 1.2rem 0.9rem 0;
-  border-right: 1px solid var(--line);
-}
-
-.stat:last-child {
-  border-right: none;
+  min-width: 130px;
+  padding: 1rem 1.15rem 1.05rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
 }
 
 .stat-num {
   display: block;
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 2.1rem;
+  font-weight: 700;
   line-height: 1;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
 }
 
 .stat-num em {
   font-style: normal;
-  color: var(--volt);
+  color: var(--accent);
 }
 
 .stat-label {
   display: block;
-  margin-top: 0.45rem;
-  font-family: var(--font-mono);
+  margin-top: 0.55rem;
   font-size: 0.66rem;
-  letter-spacing: 0.18em;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
@@ -178,18 +171,17 @@ header p {
 main {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 1.6rem 2rem 3.5rem;
+  padding: 1.8rem 2rem 3.5rem;
 }
 
 .section-label {
   display: flex;
   align-items: center;
   gap: 0.9rem;
-  margin: 0 0 1.1rem;
-  font-family: var(--font-mono);
+  margin: 0 0 1.2rem;
   font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-secondary);
 }
@@ -205,40 +197,40 @@ main {
 .training-guide {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  margin-bottom: 2.4rem;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  gap: 0.7rem;
+  margin-bottom: 2.6rem;
 }
 
 .guide-item {
   min-height: 124px;
-  padding: 1.1rem 1.1rem 1.2rem;
+  padding: 1.2rem 1.2rem 1.3rem;
   background: var(--surface);
-  transition: background 0.2s ease;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .guide-item:hover {
-  background: var(--surface-2);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--line-strong);
 }
 
 .guide-label {
-  display: block;
+  display: inline-block;
   margin-bottom: 0.6rem;
-  color: var(--volt);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
+  color: var(--accent-strong);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .guide-item p {
   color: var(--text-secondary);
-  font-size: 0.86rem;
-  line-height: 1.45;
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 /* =========================================================
@@ -253,31 +245,33 @@ main {
 }
 
 .day-btn {
-  background: transparent;
+  background: var(--surface);
   border: 1px solid var(--line-strong);
   color: var(--text-secondary);
-  padding: 0.6rem 1.05rem;
+  padding: 0.6rem 1.1rem;
   min-height: 44px;
   border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease,
+    transform 0.15s ease;
 }
 
 .day-btn:hover {
-  border-color: var(--volt-line);
+  border-color: var(--accent-line);
   color: var(--text-primary);
+  transform: translateY(-1px);
 }
 
 .day-btn.active {
-  background: var(--volt);
-  border-color: var(--volt);
-  color: #0a0a0b;
-  font-weight: 600;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(14, 158, 110, 0.28);
 }
 
 /* =========================================================
@@ -296,30 +290,19 @@ main {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 1.4rem 1.4rem 1.5rem;
+  padding: 1.6rem 1.6rem 1.7rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow);
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
-    border-color 0.2s ease;
-}
-
-/* Filete de acento no topo do card */
-.workout-day::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--volt), transparent 60%);
-  opacity: 0.55;
+    border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .workout-day:hover {
-  border-color: var(--volt-line);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-lg);
 }
 
 .workout-day.visible {
@@ -333,51 +316,62 @@ main {
 
 .workout-details {
   min-width: 0;
-  padding: 0.2rem 0 0;
+  padding: 0.1rem 0 0;
 }
 
 .day-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 5vw, 2.9rem);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  margin-bottom: 0.25rem;
-  line-height: 0.92;
+  font-size: clamp(1.8rem, 4.6vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.35rem;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.day-title::before {
+  content: "";
+  width: 6px;
+  align-self: stretch;
+  min-height: 1.4em;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--accent-bright), var(--accent));
 }
 
 .muscle-group {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: var(--volt);
-  margin-bottom: 0.7rem;
-  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent-strong);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .day-note {
   max-width: 760px;
-  margin-bottom: 1.3rem;
-  padding-left: 0.9rem;
-  border-left: 2px solid var(--line-strong);
+  margin-bottom: 1.4rem;
+  padding: 0.2rem 0 0.2rem 0.95rem;
+  border-left: 2px solid var(--accent-line);
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .routine-title {
-  margin: 0.4rem 0 0.8rem;
+  margin: 0.4rem 0 0.85rem;
   color: var(--text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .routine-title::before {
   content: "▍ ";
-  color: var(--volt);
+  color: var(--accent);
 }
 
 /* =========================================================
@@ -387,20 +381,20 @@ main {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.6rem;
+  gap: 0.65rem;
   counter-reset: exidx;
 }
 
 .home-list + .routine-title {
-  margin-top: 1.4rem;
+  margin-top: 1.5rem;
 }
 
 .exercise-item {
   display: flex;
   align-items: center;
-  gap: 0.85rem;
+  gap: 0.9rem;
   min-height: 100px;
-  padding: 0.7rem 0.85rem;
+  padding: 0.8rem 0.95rem;
   background: var(--surface-2);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -414,27 +408,27 @@ main {
   content: counter(exidx, decimal-leading-zero);
   align-self: flex-start;
   flex-shrink: 0;
-  font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-tertiary);
-  letter-spacing: 0.05em;
-  padding-top: 0.15rem;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.2rem;
 }
 
 .exercise-item:hover {
-  background: #202027;
-  border-color: var(--volt-line);
+  background: #ffffff;
+  border-color: var(--accent-line);
   transform: translateY(-2px);
-  box-shadow: inset 3px 0 0 var(--volt), 0 12px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 3px 0 0 var(--accent), var(--shadow);
 }
 
 .exercise-item:hover::before {
-  color: var(--volt);
+  color: var(--accent);
 }
 
 .exercise-item:focus-visible {
-  outline: 2px solid var(--volt);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -443,11 +437,11 @@ main {
   width: 54px;
   height: 54px;
   align-self: flex-start;
-  border-radius: var(--radius);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   flex-shrink: 0;
-  border: 1px solid var(--line-strong);
-  background: #e9ecef;
+  border: 1px solid var(--line);
+  background: #ffffff;
 }
 
 .exercise-illustration img {
@@ -471,7 +465,7 @@ main {
   align-items: flex-start;
   flex: 1;
   min-width: 0;
-  gap: 0.3rem;
+  gap: 0.32rem;
 }
 
 .exercise-icon {
@@ -480,29 +474,30 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius);
-  color: var(--volt);
+  background: var(--accent-soft);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
 }
 
 .exercise-name {
-  font-weight: 600;
-  font-size: 0.97rem;
-  line-height: 1.22;
+  font-weight: 700;
+  font-size: 0.99rem;
+  line-height: 1.25;
   letter-spacing: -0.01em;
+  color: var(--text-primary);
 }
 
 .exercise-target {
   color: var(--text-secondary);
-  font-size: 0.8rem;
-  line-height: 1.4;
+  font-size: 0.82rem;
+  line-height: 1.45;
 }
 
 .muscle-strip {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
 }
 
 .muscle-badge {
@@ -510,14 +505,14 @@ main {
   align-items: center;
   gap: 0.35rem;
   min-height: 28px;
-  padding: 0.16rem 0.5rem 0.16rem 0.3rem;
+  padding: 0.18rem 0.55rem 0.18rem 0.32rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  background: var(--surface);
   color: var(--text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.03em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   line-height: 1;
   transition: all 0.2s ease;
   position: relative;
@@ -525,241 +520,65 @@ main {
 }
 
 .muscle-badge:not(.is-secondary) {
-  border-color: rgba(255, 59, 25, 0.2);
-  background: linear-gradient(135deg, rgba(255, 59, 25, 0.06) 0%, rgba(255, 59, 25, 0) 100%), rgba(255, 255, 255, 0.02);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
 }
 
 .muscle-badge.is-secondary {
   color: var(--text-secondary);
-  opacity: 0.85;
 }
 
-/* --- Geometria dos marcadores de músculo (Refinada) --- */
+/* --- Silhueta + músculo destacado (SVG) --- */
 .muscle-figure {
   position: relative;
-  width: 20px;
-  height: 26px;
-  flex: 0 0 20px;
-  display: flex;
-  justify-content: center;
+  width: 17px;
+  height: 25px;
+  flex: 0 0 17px;
+  display: block;
   margin-top: 1px;
 }
 
-.muscle-body,
-.muscle-marker {
-  position: absolute;
+.muscle-figure .mf-svg {
+  width: 100%;
+  height: 100%;
   display: block;
+  overflow: visible;
 }
 
-.muscle-body {
-  background: rgba(170, 178, 189, 0.3); /* Mais suave */
+.mf-body {
+  fill: rgba(20, 22, 26, 0.13);
 }
 
-/* Geometria anatômica minimalista */
-.muscle-body.head {
-  top: 0;
-  left: 6.5px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
+.mf-mark {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 0.6px rgba(14, 158, 110, 0.45));
 }
 
-.muscle-body.torso {
-  top: 8px;
-  left: 5.5px;
-  width: 9px;
-  height: 11px;
-  /* V-Taper sutil com clip-path e fallback */
-  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
-  border-radius: 2px;
+.muscle-badge.is-secondary .mf-mark {
+  fill: var(--text-tertiary);
+  filter: none;
 }
 
-.muscle-body.arm {
-  top: 8px;
-  width: 3.5px;
-  height: 12px;
-  border-radius: 4px;
-}
-
-.muscle-body.arm-left {
-  left: 1px;
-  transform: rotate(14deg);
-}
-
-.muscle-body.arm-right {
-  right: 1px;
-  transform: rotate(-14deg);
-}
-
-.muscle-body.leg {
-  top: 20px;
-  width: 4px;
-  height: 8px;
-  border-radius: 2px 2px 3px 3px;
-}
-
-.muscle-body.leg-left {
-  left: 5.5px;
-}
-
-.muscle-body.leg-right {
-  right: 5.5px;
-}
-
-/* Marker orgânico (brilho difuso em vez de borda dura) */
-.muscle-marker {
-  z-index: 2;
-  background: var(--accent-1);
-  box-shadow: 0 0 5px 1px var(--volt-soft);
-  opacity: 0.9;
-  filter: blur(0.5px);
-  border: none;
-}
-
-.is-secondary .muscle-marker {
-  background: var(--accent-2);
-  box-shadow: 0 0 5px 1px rgba(207, 207, 199, 0.15);
-}
-
-/* Posições refinadas para alinhar com o novo corpo */
-.muscle-chest .muscle-marker,
-.muscle-upperChest .muscle-marker {
-  left: 5.5px;
-  width: 9px;
-  height: 4px;
-  border-radius: 4px;
-}
-
-.muscle-chest .muscle-marker {
-  top: 9px;
-}
-
-.muscle-upperChest .muscle-marker {
-  top: 8px;
-}
-
-.muscle-frontShoulder .muscle-marker,
-.muscle-sideShoulder .muscle-marker,
-.muscle-rearShoulder .muscle-marker {
-  top: 7px;
-  width: 4.5px;
-  height: 4.5px;
-  border-radius: 50%;
-}
-
-.muscle-frontShoulder .muscle-marker,
-.muscle-sideShoulder .muscle-marker {
-  left: 1.5px;
-}
-
-.muscle-rearShoulder .muscle-marker {
-  right: 1.5px;
-}
-
-.muscle-triceps .muscle-marker,
-.muscle-biceps .muscle-marker,
-.muscle-forearms .muscle-marker {
-  width: 3.5px;
-  border-radius: 3px;
-}
-
-.muscle-triceps .muscle-marker {
-  top: 10px;
-  right: 0.5px;
-  height: 6px;
-}
-
-.muscle-biceps .muscle-marker {
-  top: 9px;
-  left: 0.5px;
-  height: 5px;
-}
-
-.muscle-forearms .muscle-marker {
-  top: 14px;
-  left: -0.5px;
-  height: 5px;
-}
-
-.muscle-lats .muscle-marker,
-.muscle-midBack .muscle-marker,
-.muscle-traps .muscle-marker,
-.muscle-core .muscle-marker {
-  left: 5.5px;
-  width: 9px;
-  border-radius: 4px;
-}
-
-.muscle-lats .muscle-marker {
-  top: 10px;
-  height: 6px;
-}
-
-.muscle-midBack .muscle-marker {
-  top: 9px;
-  height: 5px;
-}
-
-.muscle-traps .muscle-marker {
-  top: 7px;
-  height: 3px;
-}
-
-.muscle-core .muscle-marker {
-  top: 13px;
-  width: 7px;
-  left: 6.5px;
-  height: 4px;
-}
-
-.muscle-quads .muscle-marker,
-.muscle-glutes .muscle-marker,
-.muscle-hamstrings .muscle-marker,
-.muscle-calves .muscle-marker {
-  border-radius: 3px;
-}
-
-.muscle-quads .muscle-marker,
-.muscle-hamstrings .muscle-marker {
-  top: 20px;
-  left: 5.5px;
-  width: 9px;
-  height: 4px;
-}
-
-.muscle-glutes .muscle-marker {
-  top: 18px;
-  left: 5.5px;
-  width: 9px;
-  height: 3px;
-}
-
-.muscle-calves .muscle-marker {
-  top: 24px;
-  left: 5.5px;
-  width: 9px;
-  height: 3px;
-}
-
-/* Badge de séries — estilo "instrumento" */
+/* Badge de séries */
 .exercise-sets {
   align-self: flex-start;
   margin-top: 0.1rem;
-  font-family: var(--font-mono);
-  font-weight: 600;
-  color: var(--volt);
-  background: var(--volt-soft);
-  border: 1px solid var(--volt-line);
-  padding: 0.34rem 0.5rem;
-  border-radius: var(--radius);
+  font-weight: 700;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  padding: 0.36rem 0.55rem;
+  border-radius: var(--radius-sm);
   font-size: 0.76rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   line-height: 1;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 /* =========================================================
-   MODAL (lightbox claro deliberado)
+   MODAL
    ========================================================= */
 body.modal-open {
   overflow: hidden;
@@ -781,8 +600,8 @@ body.modal-open {
 .exercise-modal__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(5, 5, 6, 0.82);
-  backdrop-filter: blur(12px);
+  background: rgba(20, 22, 26, 0.42);
+  backdrop-filter: blur(10px);
 }
 
 .exercise-modal__panel {
@@ -790,12 +609,12 @@ body.modal-open {
   width: min(900px, 100%);
   max-height: min(86dvh, 800px);
   overflow: auto;
-  background: #f4f3ee;
-  color: #15140f;
+  background: #ffffff;
+  color: var(--text-primary);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6);
-  padding: 1.25rem;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  padding: 1.4rem;
   animation: modalRise 0.32s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
@@ -812,24 +631,23 @@ body.modal-open {
 
 .exercise-modal__close {
   position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
+  top: 0.95rem;
+  right: 0.95rem;
   width: 44px;
   height: 44px;
-  border: 1px solid rgba(21, 20, 15, 0.18);
-  border-radius: var(--radius);
-  background: #ffffff;
-  color: #15140f;
-  font-family: var(--font-mono);
-  font-weight: 600;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--text-primary);
+  font-weight: 700;
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .exercise-modal__close:hover,
 .exercise-modal__close:focus-visible {
-  background: var(--volt);
-  border-color: var(--volt);
+  background: var(--accent);
+  border-color: var(--accent);
   color: #fff;
   outline: none;
 }
@@ -844,105 +662,94 @@ body.modal-open {
 
 .exercise-modal__header h2 {
   font-family: var(--font-display);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  font-size: clamp(1.7rem, 3.5vw, 2.6rem);
-  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  line-height: 1.02;
+  color: var(--text-primary);
 }
 
 .exercise-modal__sets {
   flex-shrink: 0;
   margin-top: 0.2rem;
-  padding: 0.42rem 0.6rem;
-  border-radius: var(--radius);
-  background: var(--volt);
+  padding: 0.44rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
   color: #fff;
-  font-family: var(--font-mono);
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .exercise-modal__target {
   margin: -0.2rem 0 1.1rem 0.1rem;
   max-width: 720px;
-  color: #50503f;
-  font-size: 0.97rem;
-  line-height: 1.5;
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.55;
 }
 
 .exercise-modal__muscles {
-  margin: -0.4rem 0 1.1rem 0.1rem;
-}
-
-.exercise-modal__muscles .muscle-badge {
-  border-color: rgba(21, 20, 15, 0.12);
-  background: #ffffff;
-  color: #15140f;
-}
-
-.exercise-modal__muscles .muscle-badge.is-secondary {
-  color: #50503f;
-}
-
-.exercise-modal__muscles .muscle-body {
-  background: rgba(80, 80, 63, 0.28);
+  margin: -0.4rem 0 1.2rem 0.1rem;
 }
 
 .exercise-modal__swap {
-  margin: 0 0 1.1rem;
-  padding: 0.95rem;
-  border: 1px solid rgba(21, 20, 15, 0.12);
-  border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.6);
+  margin: 0 0 1.2rem;
+  padding: 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-2);
 }
 
 .exercise-modal__swap h3 {
-  margin-bottom: 0.75rem;
-  font-family: var(--font-mono);
+  margin-bottom: 0.8rem;
   font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #15140f;
+  color: var(--text-secondary);
 }
 
 .exercise-modal__options {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.55rem;
+  gap: 0.6rem;
 }
 
 .exercise-modal__option {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.28rem;
+  gap: 0.3rem;
   min-height: 76px;
-  padding: 0.7rem;
-  border: 1px solid rgba(21, 20, 15, 0.14);
-  border-radius: var(--radius);
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
   background: #ffffff;
-  color: #15140f;
+  color: var(--text-primary);
   font-family: var(--font-body);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease,
+    box-shadow 0.2s ease;
 }
 
 .exercise-modal__option:hover,
 .exercise-modal__option:focus-visible {
-  border-color: var(--volt);
+  border-color: var(--accent);
   transform: translateY(-1px);
+  box-shadow: var(--shadow);
   outline: none;
 }
 
 .exercise-modal__option:disabled {
   cursor: default;
   transform: none;
-  border-color: var(--volt);
-  background: var(--volt-soft);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: none;
 }
 
 .exercise-modal__option-name {
@@ -950,28 +757,27 @@ body.modal-open {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.35rem;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 700;
   line-height: 1.2;
 }
 
 .exercise-modal__option-current {
-  padding: 0.16rem 0.4rem;
+  padding: 0.18rem 0.45rem;
   border-radius: 999px;
-  background: var(--volt);
+  background: var(--accent);
   color: #fff;
-  font-family: var(--font-mono);
   font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   line-height: 1;
   text-transform: uppercase;
 }
 
 .exercise-modal__option-target {
-  color: #50503f;
-  font-size: 0.78rem;
-  line-height: 1.35;
+  color: var(--text-secondary);
+  font-size: 0.79rem;
+  line-height: 1.4;
 }
 
 .exercise-modal__images {
@@ -986,8 +792,8 @@ body.modal-open {
   place-items: center;
   overflow: hidden;
   border-radius: var(--radius);
-  background: #ffffff;
-  border: 1px solid rgba(21, 20, 15, 0.12);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
 }
 
 .exercise-modal__figure img {
@@ -1004,12 +810,11 @@ body.modal-open {
 footer {
   max-width: 1080px;
   margin: 0 auto;
-  padding: 2.2rem 2rem;
+  padding: 2.4rem 2rem;
   color: var(--text-tertiary);
   border-top: 1px solid var(--line);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.04em;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
 }
 
 /* =========================================================
@@ -1059,15 +864,20 @@ footer {
   }
 
   header h1 {
-    font-size: clamp(2.8rem, 17vw, 4.2rem);
+    font-size: clamp(2.8rem, 16vw, 4.2rem);
   }
 
   header p {
     font-size: 0.98rem;
   }
 
+  .stat {
+    min-width: calc(50% - 0.35rem);
+    padding: 0.85rem 0.95rem 0.9rem;
+  }
+
   .stat-num {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 
   .training-guide {
@@ -1075,10 +885,6 @@ footer {
     margin-left: -1rem;
     margin-right: -1rem;
     padding: 0;
-    border-left: none;
-    border-right: none;
-    border-radius: 0;
-    background: transparent;
     gap: 0.6rem;
     overflow-x: auto;
     scroll-snap-type: x proximity;
@@ -1092,8 +898,6 @@ footer {
   .guide-item {
     flex: 0 0 min(78vw, 300px);
     min-height: 120px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
     scroll-snap-align: start;
   }
 
@@ -1116,13 +920,13 @@ footer {
     padding: 0.7rem 1rem calc(0.7rem + env(safe-area-inset-bottom));
     gap: 0.45rem;
     overflow-x: auto;
-    background: rgba(10, 10, 11, 0.9);
-    border-top: 1px solid var(--line-strong);
-    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.82);
+    border-top: 1px solid var(--line);
+    backdrop-filter: blur(16px);
     scrollbar-width: none;
     scroll-padding-inline: 1rem;
     scroll-snap-type: x proximity;
-    box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 -12px 36px rgba(20, 22, 26, 0.08);
   }
 
   .days-filter::-webkit-scrollbar {
@@ -1133,6 +937,7 @@ footer {
     flex: 0 0 auto;
     white-space: nowrap;
     scroll-snap-align: center;
+    box-shadow: none;
   }
 
   .workout-container {
@@ -1140,17 +945,17 @@ footer {
   }
 
   .workout-day {
-    padding: 1.1rem 1rem 1.2rem;
+    padding: 1.3rem 1.1rem 1.4rem;
   }
 
   .day-note {
-    font-size: 0.84rem;
+    font-size: 0.88rem;
   }
 
   .exercise-item {
     min-height: 108px;
-    padding: 0.75rem;
-    gap: 0.7rem;
+    padding: 0.8rem;
+    gap: 0.75rem;
   }
 
   .exercise-illustration {
@@ -1159,11 +964,11 @@ footer {
   }
 
   .exercise-name {
-    font-size: 0.95rem;
+    font-size: 0.96rem;
   }
 
   .exercise-target {
-    font-size: 0.79rem;
+    font-size: 0.81rem;
   }
 
   .exercise-modal {
@@ -1175,8 +980,8 @@ footer {
     height: 100dvh;
     max-height: none;
     border-radius: 0;
-    padding: 0.95rem;
-    padding-bottom: calc(0.95rem + env(safe-area-inset-bottom));
+    padding: 1.05rem;
+    padding-bottom: calc(1.05rem + env(safe-area-inset-bottom));
   }
 
   .exercise-modal__header {
@@ -1186,11 +991,11 @@ footer {
   }
 
   .exercise-modal__target {
-    font-size: 0.92rem;
+    font-size: 0.93rem;
   }
 
   .exercise-modal__swap {
-    padding: 0.75rem;
+    padding: 0.85rem;
   }
 
   .exercise-modal__figure {

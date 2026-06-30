@@ -258,19 +258,53 @@ document.addEventListener('DOMContentLoaded', () => {
         .map(img => img.getAttribute('src'))
         .filter(Boolean);
 
+    // Silhueta humana coesa (compartilhada pelo corpo e pelo clip do destaque)
+    const MUSCLE_BODY_SHAPES =
+        '<circle cx="12" cy="3.6" r="3"/>' +
+        '<rect x="10.7" y="5.8" width="2.6" height="2.6" rx="1.1"/>' +
+        '<path d="M7.6 9.4 C9 8.4 15 8.4 16.4 9.4 L15.2 19 C13.5 20 10.5 20 8.8 19 Z"/>' +
+        '<circle cx="7.2" cy="10" r="2.2"/>' +
+        '<circle cx="16.8" cy="10" r="2.2"/>' +
+        '<rect x="3.9" y="10.2" width="2.5" height="9.8" rx="1.25" transform="rotate(8 5.15 15)"/>' +
+        '<rect x="17.6" y="10.2" width="2.5" height="9.8" rx="1.25" transform="rotate(-8 18.85 15)"/>' +
+        '<rect x="8.7" y="18.4" width="6.6" height="4" rx="1.5"/>' +
+        '<rect x="8.5" y="21.4" width="3" height="12.2" rx="1.5"/>' +
+        '<rect x="12.5" y="21.4" width="3" height="12.2" rx="1.5"/>';
+
+    // Região destacada por grupo muscular (recortada dentro do corpo pelo clipPath)
+    const MUSCLE_MARKS = {
+        chest: '<rect x="8.4" y="10.2" width="7.2" height="3.4" rx="1.6"/>',
+        upperChest: '<rect x="8.4" y="9.4" width="7.2" height="2.6" rx="1.3"/>',
+        core: '<rect x="9.7" y="14.4" width="4.6" height="4.2" rx="1.3"/>',
+        traps: '<rect x="9" y="8.3" width="6" height="2.3" rx="1.1"/>',
+        midBack: '<rect x="9.4" y="11" width="5.2" height="4.6" rx="1.5"/>',
+        lats: '<rect x="7.3" y="11" width="2.2" height="5.4" rx="1"/><rect x="14.5" y="11" width="2.2" height="5.4" rx="1"/>',
+        frontShoulder: '<circle cx="7.2" cy="10" r="2.1"/><circle cx="16.8" cy="10" r="2.1"/>',
+        sideShoulder: '<circle cx="7.2" cy="10" r="2.1"/><circle cx="16.8" cy="10" r="2.1"/>',
+        rearShoulder: '<circle cx="7.2" cy="10" r="2.1"/><circle cx="16.8" cy="10" r="2.1"/>',
+        biceps: '<rect x="3.9" y="10.6" width="2.5" height="4.6" rx="1.25" transform="rotate(8 5.15 12.9)"/><rect x="17.6" y="10.6" width="2.5" height="4.6" rx="1.25" transform="rotate(-8 18.85 12.9)"/>',
+        triceps: '<rect x="3.9" y="11" width="2.5" height="4.8" rx="1.25" transform="rotate(8 5.15 13.4)"/><rect x="17.6" y="11" width="2.5" height="4.8" rx="1.25" transform="rotate(-8 18.85 13.4)"/>',
+        forearms: '<rect x="4.4" y="15.2" width="2.4" height="4.8" rx="1.2" transform="rotate(8 5.6 17.6)"/><rect x="17.2" y="15.2" width="2.4" height="4.8" rx="1.2" transform="rotate(-8 18.4 17.6)"/>',
+        glutes: '<rect x="8.7" y="18.6" width="6.6" height="3.2" rx="1.5"/>',
+        quads: '<rect x="8.6" y="21.6" width="2.9" height="5.6" rx="1.4"/><rect x="12.5" y="21.6" width="2.9" height="5.6" rx="1.4"/>',
+        hamstrings: '<rect x="8.6" y="22.6" width="2.9" height="5.6" rx="1.4"/><rect x="12.5" y="22.6" width="2.9" height="5.6" rx="1.4"/>',
+        calves: '<rect x="8.7" y="27.8" width="2.8" height="5" rx="1.3"/><rect x="12.5" y="27.8" width="2.8" height="5" rx="1.3"/>'
+    };
+
+    let muscleFigureSeq = 0;
+
     const createMuscleFigure = (slug) => {
         const figure = document.createElement('span');
         figure.className = `muscle-figure muscle-${slug}`;
         figure.setAttribute('aria-hidden', 'true');
-        figure.innerHTML = `
-            <span class="muscle-body head"></span>
-            <span class="muscle-body torso"></span>
-            <span class="muscle-body arm arm-left"></span>
-            <span class="muscle-body arm arm-right"></span>
-            <span class="muscle-body leg leg-left"></span>
-            <span class="muscle-body leg leg-right"></span>
-            <span class="muscle-marker"></span>
-        `;
+        const clipId = `mf-clip-${muscleFigureSeq++}`;
+        const mark = MUSCLE_MARKS[slug] || '';
+        figure.innerHTML =
+            '<svg class="mf-svg" viewBox="0 0 24 35" xmlns="http://www.w3.org/2000/svg">' +
+                `<defs><clipPath id="${clipId}">${MUSCLE_BODY_SHAPES}</clipPath></defs>` +
+                `<g class="mf-body">${MUSCLE_BODY_SHAPES}</g>` +
+                `<g class="mf-mark" clip-path="url(#${clipId})">${mark}</g>` +
+            '</svg>';
         return figure;
     };
 
